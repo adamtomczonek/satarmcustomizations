@@ -871,9 +871,6 @@
           },
           "aseResourceGroupName":{
             "value": "[parameters('aseResourceGroupName')]"
-          },
-          "azureSearchName":{
-            "value": "[parameters('azureSearchName')]"
           }
         }
       },
