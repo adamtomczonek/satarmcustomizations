@@ -1,0 +1,123 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deploymentId": {
+      "value": ""
+    },
+    "location": {
+      "value": ""
+    },
+    "applicationInsightsLocation":{
+      "value": ""
+    },
+    "sitecoreAdminPassword": {
+      "value": "testpassword"
+    },
+    "licenseXml": {
+      "value": ""
+    },
+    "repAuthenticationApiKey": {
+      "value": "fb91ac73-5587-4b95-b26a-327373594f2f"
+    },
+    "sqlServerLogin": {
+      "value": "sa"
+    },
+    "sqlServerPassword": {
+      "value": "testp@assword"
+    },
+    "siMsDeployPackageUrl": {
+      "value": ""
+    },
+    "cmMsDeployPackageUrl": {
+      "value": ""
+    },
+    "cdMsDeployPackageUrl": {
+      "value": ""
+    },
+    "prcMsDeployPackageUrl": {
+      "value": ""
+    },
+    "repMsDeployPackageUrl": {
+      "value": ""
+    },
+    "xcRefDataMsDeployPackageUrl": {
+      "value": ""
+    },
+    "xcCollectMsDeployPackageUrl": {
+      "value": ""
+    },
+    "xcSearchMsDeployPackageUrl": {
+      "value": ""
+    },
+    "cortexProcessingMsDeployPackageUrl": {
+      "value": ""
+    },
+    "cortexReportingMsDeployPackageUrl": {
+      "value": ""
+    },
+    "maOpsMsDeployPackageUrl": {
+      "value": ""
+    },
+    "maRepMsDeployPackageUrl": {
+      "value": ""
+    },
+    "authCertificateBlob": {
+      "value": "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"
+    },
+    "authCertificatePassword": {
+      "value": "secret"
+    },
+    "allowInvalidClientCertificates": {
+      "value": true
+    },
+    "machineLearningServerConnectionString": {
+      "value": ""
+    },
+    "machineLearningServerBlobEndpointCertificatePath": {
+      "value": ""
+    },
+    "machineLearningServerBlobEndpointCertificatePassword": {
+      "value": ""
+    },
+    "machineLearningServerTableEndpointCertificatePath": {
+      "value": ""
+    },
+    "machineLearningServerTableEndpointCertificatePassword": {
+      "value": ""
+    },
+    "machineLearningServerEndpointCertificationAuthorityCertificatePath": {
+      "value": ""
+    },
+    /* Name of existing AS resource */
+    "azureSearchName": {
+      "value": "rgmarketing-test-as"
+    },
+    /* False if you want to use existing AS */
+    "deployAzureSearch": {
+      "value": "false"
+    },
+    /* Fill those properties if you want to use existing App Service Plan */
+    "siExistingHostingPlanName": {
+      "value": "text-si-hp"
+    },
+    "cmExistingHostingPlanName": {
+      "value": "test-sitecore-hp"
+    },
+    "cdExistingHostingPlanName": {
+      "value": "test-sitecore-hp"
+    },
+    "prcExistingHostingPlanName": {
+      "value": "test-processing-hp"
+    },
+    "repExistingHostingPlanName": {
+      "value": "test-processing-hp"
+    },
+    "xcExistingBasicHostingPlanName": {
+      "value": "test-xc-hp"
+    },
+    "xcExistingResourceIntensiveHostingPlanName": {
+      "value": "test-xc-hp"
+    }
+  }
+}
