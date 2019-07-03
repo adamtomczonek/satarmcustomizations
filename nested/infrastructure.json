@@ -21,11 +21,11 @@
     "formsSqlDatabaseNameTidy": "[toLower(trim(parameters('formsSqlDatabaseName')))]",
     "exmMasterSqlDatabaseNameTidy": "[toLower(trim(parameters('exmMasterSqlDatabaseName')))]",
 
-    "siHostingPlanNameTidy": "[toLower(trim(parameters('siHostingPlanName')))]",
-    "cmHostingPlanNameTidy": "[toLower(trim(parameters('cmHostingPlanName')))]",
-    "cdHostingPlanNameTidy": "[toLower(trim(parameters('cdHostingPlanName')))]",
-    "prcHostingPlanNameTidy": "[toLower(trim(parameters('prcHostingPlanName')))]",
-    "repHostingPlanNameTidy": "[toLower(trim(parameters('repHostingPlanName')))]",
+    "siHostingPlanNameTidy": "[concat(toLower(trim(parameters('siHostingPlanName'))),'-si')]",
+    "cmHostingPlanNameTidy": "[concat(toLower(trim(parameters('cmHostingPlanName'))),'-cm')]",
+    "cdHostingPlanNameTidy": "[concat(toLower(trim(parameters('cdHostingPlanName'))),'-cd')]",
+    "prcHostingPlanNameTidy": "[concat(toLower(trim(parameters('prcHostingPlanName'))),'-prc')]",
+    "repHostingPlanNameTidy": "[concat(toLower(trim(parameters('repHostingPlanName'))),'-rep')]",
 
     "siWebAppNameTidy": "[toLower(trim(parameters('siWebAppName')))]",
     "cmWebAppNameTidy": "[toLower(trim(parameters('cmWebAppName')))]",

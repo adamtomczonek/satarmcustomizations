@@ -700,7 +700,6 @@
       "type": "bool",
       "defaultValue": true
     }
-
   },
   "resources": [
     {
@@ -1024,10 +1023,6 @@
 
           "maSqlDatabaseName": {
             "value": "[parameters('maSqlDatabaseName')]"
-          },
-          
-          "deployXcBasicHostingPlan": {
-            "value": "[empty(parameters('xcExistingBasicHostingPlanName'))]"
           },
           "xcBasicHostingPlanName": {
             "value": "[parameters('xcBasicHostingPlanName')]"
