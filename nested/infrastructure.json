@@ -905,7 +905,7 @@
           "properties": {
           },
           "dependsOn": [
-            "[resourceId('Microsoft.Web/sites', concat(variables('siWebAppNameTidy'),'-si-hp'))]"
+            "[resourceId('Microsoft.Web/sites', variables('siWebAppNameTidy'))]"
           ]
         }
       ]
