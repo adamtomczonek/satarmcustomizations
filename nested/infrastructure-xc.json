@@ -13,8 +13,8 @@
     "shard1SqlDatabaseNameTidy": "[toLower(trim(parameters('shard1SqlDatabaseName')))]",
     "refDataSqlDatabaseNameTidy": "[toLower(trim(parameters('refDataSqlDatabaseName')))]",
     "messagingSqlDatabaseNameTidy": "[toLower(trim(parameters('messagingSqlDatabaseName')))]",    
-    "xcBasicHostingPlanNameTidy": "[concat(toLower(trim(parameters('xcBasicHostingPlanName'))),'-xc-basic')]",
-    "xcResourceIntensiveHostingPlanNameTidy": "[concat(toLower(trim(parameters('xcResourceIntensiveHostingPlanName'))),'-xc-int')]",
+    "xcBasicHostingPlanNameTidy": "[toLower(trim(parameters('xcBasicHostingPlanName')))]",
+    "xcResourceIntensiveHostingPlanNameTidy": "[toLower(trim(parameters('xcResourceIntensiveHostingPlanName')))]",
     "xcRefDataWebAppNameTidy": "[toLower(trim(parameters('xcRefDataWebAppName')))]",
     "xcCollectWebAppNameTidy": "[toLower(trim(parameters('xcCollectWebAppName')))]",
     "xcSearchWebAppNameTidy": "[toLower(trim(parameters('xcSearchWebAppName')))]",
@@ -35,7 +35,7 @@
     "aseResourceId": "[resourceId(parameters('aseResourceGroupName'), 'Microsoft.Web/hostingEnvironments', parameters('aseName'))]",
     "hostingPlanProperties":{
       "xcBasicProperties":{
-        "name": "[variables('xcBasicHostingPlanNameTidy')]"
+        "name": "[concat(variables('xcBasicHostingPlanNameTidy'),'-xc-basic-hp')]"
       },
       "xcBasicPropertiesWithASE":{
         "name": "[variables('xcBasicHostingPlanNameTidy')]",
@@ -44,7 +44,7 @@
         }
       },
       "xcResourceIntensiveProperties":{
-        "name": "[variables('xcResourceIntensiveHostingPlanNameTidy')]"
+        "name": "[concat(variables('xcResourceIntensiveHostingPlanNameTidy'),'-xc-resourceintensive-hp')]"
       },
       "xcResourceIntensivePropertiesWithASE":{
         "name": "[variables('xcResourceIntensiveHostingPlanNameTidy')]",
@@ -380,7 +380,7 @@
     {
       "type": "Microsoft.Web/serverfarms",
       "condition": "[parameters('deployXcBasicHostingPlan')]",
-      "name": "[variables('xcBasicHostingPlanNameTidy')]",
+      "name": "[concat(variables('xcBasicHostingPlanNameTidy'),'-xc-basic-hp')]",
       "apiVersion": "[variables('serverFarmApiVersion')]",
       "sku": {
         "name": "[if(not(variables('useAse')), parameters('resourceSizes').xcBasicHostingPlan.SkuName, parameters('resourceSizes').xcBasicHostingPlanIsolated.SkuName)]",
@@ -396,7 +396,7 @@
     {
       "type": "Microsoft.Web/serverfarms",
       "condition": "[parameters('deployXcResourceIntensiveHostingPlan')]",
-      "name": "[variables('xcResourceIntensiveHostingPlanNameTidy')]",
+      "name": "[concat(variables('xcResourceIntensiveHostingPlanNameTidy'),'-xc-resourceintensive-hp')]",
       "apiVersion": "[variables('serverFarmApiVersion')]",
       "sku": {
         "name": "[if(not(variables('useAse')), parameters('resourceSizes').xcResourceIntensiveHostingPlan.SkuName, parameters('resourceSizes').xcResourceIntensiveHostingPlanIsolated.SkuName)]",

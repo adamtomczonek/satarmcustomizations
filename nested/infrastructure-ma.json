@@ -9,7 +9,7 @@
 
     "maSqlDatabaseNameTidy": "[toLower(trim(parameters('maSqlDatabaseName')))]",
 
-    "xcBasicHostingPlanNameTidy": "[concat(toLower(trim(parameters('xcBasicHostingPlanName'))),'-xc-basic')]",
+    "xcBasicHostingPlanNameTidy": "[toLower(trim(parameters('xcBasicHostingPlanName')))]",
 
     "maOpsWebAppNameTidy": "[toLower(trim(parameters('maOpsWebAppName')))]",
     "maRepWebAppNameTidy": "[toLower(trim(parameters('maRepWebAppName')))]",

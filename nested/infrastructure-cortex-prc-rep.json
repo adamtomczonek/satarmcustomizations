@@ -11,8 +11,8 @@
     "processingEngineStorageSqlDatabaseNameTidy": "[toLower(trim(parameters('processingEngineStorageSqlDatabaseName')))]",
     "reportingSqlDatabaseNameTidy": "[toLower(trim(parameters('reportingSqlDatabaseName')))]",
 
-    "xcBasicHostingPlanNameTidy": "[concat(toLower(trim(parameters('xcBasicHostingPlanName'))),'-xc-basic')]",
-    "xcResourceIntensiveHostingPlanNameTidy": "[concat(toLower(trim(parameters('xcResourceIntensiveHostingPlanName'))),'-xc-int')]",
+    "xcBasicHostingPlanNameTidy": "[toLower(trim(parameters('xcBasicHostingPlanName')))]",
+    "xcResourceIntensiveHostingPlanNameTidy": "[toLower(trim(parameters('xcResourceIntensiveHostingPlanName')))]",
 
     "cortexProcessingWebAppNameTidy": "[toLower(trim(parameters('cortexProcessingWebAppName')))]",
     "cortexReportingWebAppNameTidy": "[toLower(trim(parameters('cortexReportingWebAppName')))]",
