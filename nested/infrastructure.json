@@ -1315,11 +1315,11 @@
       "apiVersion": "[variables('certificateApiVersion')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('siHostingPlanNameTidy'))]",
-        "[resourceId('Microsoft.Web/serverfarms', variables('cmHostingPlanNameTidy'))]",
-        "[resourceId('Microsoft.Web/serverfarms', variables('cdHostingPlanNameTidy'))]",
-        "[resourceId('Microsoft.Web/serverfarms', variables('prcHostingPlanNameTidy'))]",
-        "[resourceId('Microsoft.Web/serverfarms', variables('repHostingPlanNameTidy'))]"
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('siHostingPlanNameTidy')),'-si-hp')]",
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('cmHostingPlanNameTidy')),'-cm-hp')]",
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('cdHostingPlanNameTidy')),'-cd-hp')]",
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('prcHostingPlanNameTidy')),'-prc-hp')]",
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('repHostingPlanNameTidy')),'-rep-hp')]"
       ],
       "properties": {
         "password": "[parameters('authCertificatePassword')]",
