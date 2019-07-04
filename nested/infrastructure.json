@@ -890,7 +890,7 @@
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('siHostingPlanNameTidy'))]"
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('prcHostingPlanNameTidy'),'-prc-hp'))]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
@@ -905,7 +905,7 @@
           "properties": {
           },
           "dependsOn": [
-            "[resourceId('Microsoft.Web/sites', variables('siWebAppNameTidy'))]"
+            "[resourceId('Microsoft.Web/sites', concat(variables('siWebAppNameTidy')),'-si-hp')]"
           ]
         }
       ]
@@ -927,7 +927,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('cmHostingPlanNameTidy'))]"
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('cmHostingPlanNameTidy'),'-cm-hp'))]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
@@ -951,7 +951,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('cdHostingPlanNameTidy'))]"
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('cdHostingPlanNameTidy'),'-cd-hp'))]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
@@ -975,7 +975,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('prcHostingPlanNameTidy'))]"
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('prcHostingPlanNameTidy')),'-prc-hp')]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
@@ -999,7 +999,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('repHostingPlanNameTidy'))]"
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('repHostingPlanNameTidy')),'-rep-hp')]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",

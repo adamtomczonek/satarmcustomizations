@@ -427,7 +427,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('xcResourceIntensiveHostingPlanNameTidy'))]"
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('xcResourceIntensiveHostingPlanNameTidy')),'-xc-resourceintensive-hp')]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
@@ -481,7 +481,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('xcResourceIntensiveHostingPlanNameTidy'))]"
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('xcResourceIntensiveHostingPlanNameTidy')),'-xc-resourceintensive-hp')]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
@@ -622,7 +622,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('xcBasicHostingPlanNameTidy'))]"
+        "[resourceId('Microsoft.Web/serverfarms', concat(variables('xcBasicHostingPlanNameTidy')),'-xc-basic-hp')]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
