@@ -92,7 +92,10 @@
       "type": "securestring",
       "minLength": 8
     },
-
+    "deploySqlServer": {
+      "type": "bool",
+       "defaultValue": true
+    },
     "sqlServerVersion": {
       "type": "string",
       "minLength": 1,
@@ -749,7 +752,10 @@
           "sqlServerPassword": {
             "value": "[parameters('sqlServerPassword')]"
           },
-
+          "deploySqlServer":
+          {
+            "value": "[parameters('deploySqlServer')]"
+          },
           "sqlServerVersion": {
             "value": "[parameters('sqlServerVersion')]"
           },
