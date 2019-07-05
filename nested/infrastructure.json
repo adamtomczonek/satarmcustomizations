@@ -1339,7 +1339,7 @@
     "infrastructure": {
       "type": "object",
       "value": {
-        "sqlServerFqdn": "[reference(concat('Microsoft.Sql/servers/', variables('sqlServerNameTidy'))).fullyQualifiedDomainName]",
+        "sqlServerFqdn": "[reference(concat('Microsoft.Sql/servers/', variables('sqlServerNameTidy')),variables('dbApiVersion')).fullyQualifiedDomainName]",
         "siWebAppHostName": "[reference(concat('Microsoft.Web/sites/', variables('siWebAppNameTidy')), variables('webApiVersion')).defaultHostName]",
         "cmWebAppHostName": "[reference(concat('Microsoft.Web/sites/', variables('cmWebAppNameTidy')), variables('webApiVersion')).defaultHostName]",
         "authCertificateThumbprint": "[reference(resourceId('Microsoft.Web/certificates', variables('authCertificateNameTidy'))).thumbprint]"
