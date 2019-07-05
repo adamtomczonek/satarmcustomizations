@@ -140,7 +140,10 @@
       "type": "securestring",
       "minLength": 8
     },
-
+    "deploySqlServer": {
+      "type": "bool",
+       "defaultValue": true
+    },
     "sqlServerVersion": {
       "type": "string",
       "minLength": 1,
@@ -1008,6 +1011,7 @@
     },
     {
       "type": "Microsoft.Sql/servers",
+      "condition": "[parameters('deploySqlServer')]",
       "apiVersion": "[variables('dbApiVersion')]",
       "properties": {
         "administratorLogin": "[parameters('sqlServerLogin')]",
