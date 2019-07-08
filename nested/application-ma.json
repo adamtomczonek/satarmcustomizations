@@ -264,9 +264,7 @@
           "XConnect Server Application Insights Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey, '')]",
           "XConnect Server Instance Name": "MarketingAutomationReporting",
           "License Xml": "[parameters('licenseXml')]"
-        },
-        "dependsOn": [
-        "[resourceId('Microsoft.Web/sites/extensions', variables('maOpsWebAppNameTidy'),'MSDeploy')]"]
+        }
       }
     },
     {
@@ -278,7 +276,7 @@
         "WEBSITE_DYNAMIC_CACHE": 0
       },
         "dependsOn": [
-        "[resourceId('Microsoft.Web/sites/extensions', variables('maRepWebAppNameTidy'),'MSDeploy')]"
+        "[resourceId('Microsoft.Web/sites/extensions', variables('maOpsWebAppNameTidy'),'MSDeploy')]"
       ]
     },
     {
@@ -290,7 +288,7 @@
         "WEBSITE_DYNAMIC_CACHE": 0
       },
        "dependsOn": [
-        "[resourceId('Microsoft.Web/sites/config', variables('maOpsWebAppNameTidy'),'appsettings')]"
+        "[resourceId('Microsoft.Web/sites/extensions', variables('maRepWebAppNameTidy'),'MSDeploy')]"
       ]
     }
   ]
