@@ -470,7 +470,7 @@
       "apiVersion": "[variables('webApiVersion')]",
       "properties": {
         "clientCertEnabled": true,
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('xcResourceIntensiveHostingPlanNameTidy'))]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', if(parameters('deployXcResourceIntensiveHostingPlan'),variables('xcResourceIntensiveHostingPlanNameTidy'),parameters('xcResourceIntensiveHostingPlanName')))]",
         "siteConfig": {
           "use32BitWorkerProcess": false,
           "alwaysOn": true,
