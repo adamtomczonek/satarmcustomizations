@@ -13,8 +13,9 @@
     "shard1SqlDatabaseNameTidy": "[toLower(trim(parameters('shard1SqlDatabaseName')))]",
     "refDataSqlDatabaseNameTidy": "[toLower(trim(parameters('refDataSqlDatabaseName')))]",
     "messagingSqlDatabaseNameTidy": "[toLower(trim(parameters('messagingSqlDatabaseName')))]",    
-    "xcBasicHostingPlanNameTidy": "[toLower(trim(parameters('xcBasicHostingPlanName')))]",
-    "xcResourceIntensiveHostingPlanNameTidy": "[toLower(trim(parameters('xcResourceIntensiveHostingPlanName')))]",
+    "xcBasicHostingPlanNameTidy": "[if(parameters('deployXcBasicHostingPlan'),parameters('xcBasicHostingPlanName'),concat(parameters('xcBasicHostingPlanName'), '-xc-basic-hp'))]",
+    "xcResourceIntensiveHostingPlanNameTidy": "[if(parameters('deployXcResourceIntensiveHostingPlan'),parameters('xcResourceIntensiveHostingPlanName'),concat(parameters('xcResourceIntensiveHostingPlanName'), '-xc-resourceintensive-hp'))]",
+
     "xcRefDataWebAppNameTidy": "[toLower(trim(parameters('xcRefDataWebAppName')))]",
     "xcCollectWebAppNameTidy": "[toLower(trim(parameters('xcCollectWebAppName')))]",
     "xcSearchWebAppNameTidy": "[toLower(trim(parameters('xcSearchWebAppName')))]",
@@ -35,7 +36,7 @@
     "aseResourceId": "[resourceId(parameters('aseResourceGroupName'), 'Microsoft.Web/hostingEnvironments', parameters('aseName'))]",
     "hostingPlanProperties":{
       "xcBasicProperties":{
-        "name": "[concat(variables('xcBasicHostingPlanNameTidy'),'-xc-basic-hp')]"
+        "name": "[variables('xcBasicHostingPlanNameTidy')]"
       },
       "xcBasicPropertiesWithASE":{
         "name": "[variables('xcBasicHostingPlanNameTidy')]",
@@ -44,7 +45,7 @@
         }
       },
       "xcResourceIntensiveProperties":{
-        "name": "[concat(variables('xcResourceIntensiveHostingPlanNameTidy'),'-xc-resourceintensive-hp')]"
+        "name": "[variables('xcResourceIntensiveHostingPlanNameTidy')]"
       },
       "xcResourceIntensivePropertiesWithASE":{
         "name": "[variables('xcResourceIntensiveHostingPlanNameTidy')]",
@@ -380,7 +381,7 @@
     {
       "type": "Microsoft.Web/serverfarms",
       "condition": "[parameters('deployXcBasicHostingPlan')]",
-      "name": "[concat(variables('xcBasicHostingPlanNameTidy'),'-xc-basic-hp')]",
+      "name": "[variables('xcBasicHostingPlanNameTidy')]",
       "apiVersion": "[variables('serverFarmApiVersion')]",
       "sku": {
         "name": "[if(not(variables('useAse')), parameters('resourceSizes').xcBasicHostingPlan.SkuName, parameters('resourceSizes').xcBasicHostingPlanIsolated.SkuName)]",
@@ -396,7 +397,7 @@
     {
       "type": "Microsoft.Web/serverfarms",
       "condition": "[parameters('deployXcResourceIntensiveHostingPlan')]",
-      "name": "[concat(variables('xcResourceIntensiveHostingPlanNameTidy'),'-xc-resourceintensive-hp')]",
+      "name": "[variables('xcResourceIntensiveHostingPlanNameTidy')]",
       "apiVersion": "[variables('serverFarmApiVersion')]",
       "sku": {
         "name": "[if(not(variables('useAse')), parameters('resourceSizes').xcResourceIntensiveHostingPlan.SkuName, parameters('resourceSizes').xcResourceIntensiveHostingPlanIsolated.SkuName)]",
@@ -415,7 +416,7 @@
       "apiVersion": "[variables('webApiVersion')]",
       "properties": {
         "clientCertEnabled": true,
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('xcResourceIntensiveHostingPlanNameTidy'))]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', if(parameters('deployXcResourceIntensiveHostingPlan'),variables('xcResourceIntensiveHostingPlanNameTidy'),parameters('xcResourceIntensiveHostingPlanName')))]",
         "siteConfig": {
           "use32BitWorkerProcess": false,
           "alwaysOn": true,
@@ -427,7 +428,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', concat(variables('xcResourceIntensiveHostingPlanNameTidy'),'-xc-resourceintensive-hp'))]"
+        "[resourceId('Microsoft.Web/serverfarms', variables('xcResourceIntensiveHostingPlanNameTidy'))]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
@@ -481,7 +482,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', concat(variables('xcResourceIntensiveHostingPlanNameTidy'),'-xc-resourceintensive-hp'))]"
+        "[resourceId('Microsoft.Web/serverfarms', variables('xcResourceIntensiveHostingPlanNameTidy'))]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
@@ -610,7 +611,7 @@
       "apiVersion": "[variables('webApiVersion')]",
       "properties": {
         "clientCertEnabled": true,
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('xcBasicHostingPlanNameTidy'))]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', if(parameters('deployXcBasicHostingPlan'),variables('xcBasicHostingPlanNameTidy'),parameters('xcBasicHostingPlanName'))          )]",
         "siteConfig": {
           "use32BitWorkerProcess": false,
           "alwaysOn": true,
@@ -622,7 +623,7 @@
       },
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', concat(variables('xcBasicHostingPlanNameTidy'),'-xc-basic-hp'))]"
+        "[resourceId('Microsoft.Web/serverfarms', variables('xcBasicHostingPlanNameTidy'))]"
       ],
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
